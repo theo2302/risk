@@ -6,23 +6,9 @@ import plotly.graph_objects as go
 np.set_printoptions(suppress=True, precision=6)
 
 # Streamlit app
-st.image("img.jpg", use_column_width="always")
 st.title("Empréstimo Inteligente BR")
 
-# Display a disclaimer with emphasis on potential bias
-st.warning(
-    '''
-    Aviso Importante: Este modelo de avaliação de crédito foi criado como parte de um exercício de estudos.
-    
-    A precisão deste modelo é de aproximadamente 92% com base nos dados em que foi treinado. No entanto, é importante notar que modelos de Machine Learning têm limitações e podem conter vieses.
-    
-    A qualidade dos resultados deste modelo depende da qualidade e representatividade dos dados em que foi treinado. Pode haver vieses ocultos nos dados que influenciem as previsões deste modelo.
-    
-    Recomendamos que os resultados deste modelo sejam usados como uma ferramenta de referência, mas leve em consideração a possibilidade de viés nos resultados.
-    
-    Para decisões financeiras importantes, recomendamos consultar com profissionais qualificados e considerar múltiplas fontes de informação.
-    '''
-)
+
 
 
 # Input fields for user
@@ -128,7 +114,7 @@ if (st.sidebar.button("Criar Beneficiário", on_click=callback) or st.session_st
     st.write(f"**Salário (mês): R$ {person_income}**")
     st.write(f"**Nível de risco: {grade}**")
     st.write(f"**Tempo Empregado: {person_emp_length} Anos**")
-    st.write(f"**Valor do empréstimo: {loan_amt}**")
+    st.write(f"**Valor do empréstimo: R$ {loan_amt}**")
     st.write(f"**Taxa de juros: {loan_int_rate}%**")
     st.write(f"**Motivo do Empréstimo: {loan_intent}**")
     st.write(f"**Tipo de Moradia: {housing}**")
@@ -192,3 +178,18 @@ if (st.sidebar.button("Criar Beneficiário", on_click=callback) or st.session_st
 
 else:
     st.subheader("**Crie um perfil**")
+
+# Display a disclaimer with emphasis on potential bias
+st.warning(
+    '''
+    Aviso Importante: Os resultados e previsões não devem ser interpretados como uma representação fiel da realidade
+    
+    Este webapp tem como meta ilustrar a aplicação de machine learning em tarefas ordinárias de forma simples.
+    
+    A precisão deste modelo é de aproximadamente 92% com base nos dados em que foi treinado. No entanto, é importante notar que modelos de Machine Learning têm limitações e podem conter vieses.
+    
+    A qualidade dos resultados de modelos depende da qualidade e representatividade dos dados em que foi treinado. Pode haver vieses ocultos nos dados que influenciem as previsões deste modelo.
+    
+    Para decisões financeiras importantes, recomendamos consultar com profissionais qualificados e considerar múltiplas fontes de informação.
+    '''
+)
