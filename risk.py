@@ -29,7 +29,6 @@ loan_amt = st.sidebar.number_input("Valor do empréstimo",  min_value=0, max_val
 loan_intent_options = ("Educação", "Investimento", "Pagamento Divida", "Pessoal", "Reforma Residencial", "Saúde")
 loan_intent = st.sidebar.selectbox( "Motivo do Empréstimo", options= loan_intent_options, index=None, placeholder="Escolha uma opção...")
 loan_int_rate = st.sidebar.select_slider("Taxa de juros (5-25%)", np.arange(5, 26, 1))
-grade = st.sidebar.select_slider("Nível de risco", ["Baixo", "Médio", "Alto"])
 loan_intent_options = ("Educação", "Investimento", "Pagamento Divida", "Pessoal", "Reforma Residencial", "Saúde")
 
 
@@ -39,7 +38,7 @@ loan_intent_options = ("Educação", "Investimento", "Pagamento Divida", "Pessoa
 def preprocess_user_input(user_data):
     # Ensure that the column names match the training data
     # Preprocess user input data (scaling)
-    user_data.iloc[:, :8] = scaler.transform(user_data.iloc[:, :8])
+    user_data.iloc[:, :6] = scaler.transform(user_data.iloc[:, :6])
     user_data_scaled = user_data
 
     return user_data_scaled
@@ -57,7 +56,6 @@ user_data = pd.DataFrame({
     'person_age': [person_age],
     'person_income': [(person_income) * 12],
     'person_emp_length': [person_emp_length],
-    'loan_grade': [0],  # Add default values for other columns
     'loan_amnt': [loan_amt],
     'loan_int_rate': [loan_int_rate],
     'cb_person_cred_hist_length': [cred_hist_len],
@@ -118,7 +116,6 @@ if (st.sidebar.button("Enviar Formulário", on_click=callback) or st.session_sta
         st.subheader("Informações do Beneficiário")
         st.write(f"**Idade: {person_age}**")
         st.write(f"**Salário (mês): R$ {person_income:,}**")
-        st.write(f"**Nível de risco: {grade}**")
         st.write(f"**Tempo Empregado: {person_emp_length} Anos**")
         st.write(f"**Valor do empréstimo: R$ {loan_amt:,}**")
         st.write(f"**Taxa de juros: {loan_int_rate}%**")
@@ -133,7 +130,7 @@ if (st.sidebar.button("Enviar Formulário", on_click=callback) or st.session_sta
             scaler = joblib.load('scaler.pkl')  
 
             def preprocess_user_input(user_data):
-                user_data.iloc[:, :7] = scaler.transform(user_data.iloc[:, :7])
+                user_data.iloc[:, :6] = scaler.transform(user_data.iloc[:, :6])
                 user_data_scaled = user_data
                 return user_data_scaled
 
