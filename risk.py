@@ -184,7 +184,7 @@ if (st.sidebar.button("Enviar Formulário", on_click=callback) or st.session_sta
 
 else:
     st.subheader("**Aguardando o perfil de beneficiário**")
-    st.write(" :red[Preencha o formulário à esquerda, para criar um perfil]")
+    st.write(" :red[Preencha o formulário à direita, para criar um perfil]")
 
 # Display a disclaimer with emphasis on potential bias
 st.warning(
