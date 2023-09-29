@@ -195,7 +195,7 @@ st.warning(
     
     A precisão deste modelo é de aproximadamente 92% com base nos dados em que foi treinado. No entanto, é importante notar que modelos de Machine Learning têm limitações e podem conter vieses.
     
-    A qualidade dos resultados de modelos depende da qualidade e representatividade dos dados em que foi treinado. Pode haver vieses ocultos nos dados que influenciem as previsões deste modelo.
+    A qualidade dos resultados de modelos depende da qualidade e representatividade dos dados em que foi treinado. Pode haver vieses ocultos nos dados que influenciam as previsões deste modelo.
     
     Para decisões financeiras importantes, recomendamos consultar com profissionais qualificados e considerar múltiplas fontes de informação.
     '''
