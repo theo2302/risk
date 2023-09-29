@@ -176,7 +176,20 @@ if (st.sidebar.button("Enviar Formulário", on_click=callback) or st.session_sta
 
             # Display the gauge using st.plotly_chart
             st.plotly_chart(gauge_fig)
-
+            # Display a disclaimer with emphasis on potential bias
+            st.warning(
+                '''
+                Aviso Importante: Os resultados e previsões não devem ser interpretados como uma representação fiel da realidade
+                
+                Este webapp tem como meta ilustrar a aplicação de machine learning em tarefas ordinárias de forma simples.
+                
+                A precisão deste modelo é de aproximadamente 92% com base nos dados em que foi treinado. No entanto, é importante notar que modelos de Machine Learning têm limitações e podem conter vieses.
+                
+                A qualidade dos resultados de modelos depende da qualidade e representatividade dos dados em que foi treinado. Pode haver vieses ocultos nos dados que influenciam as previsões deste modelo.
+                
+                Para decisões financeiras importantes, recomendamos consultar com profissionais qualificados e considerar múltiplas fontes de informação.
+                '''
+            )
 
 
     # Rest of your code remains unchanged
@@ -184,7 +197,7 @@ if (st.sidebar.button("Enviar Formulário", on_click=callback) or st.session_sta
 
 else:
     st.subheader("**Aguardando o perfil de beneficiário**")
-    st.write(" :red[Preencha o formulário à direita, para criar um perfil]")
+    st.write(" :red[Preencha o formulário à direita para criar um perfil]")
 
 # Display a disclaimer with emphasis on potential bias
 st.warning(
