@@ -77,7 +77,7 @@ user_data = pd.DataFrame({
 if (st.sidebar.button("Enviar Formulário", on_click=callback) or st.session_state.profile_created):
 
     if (housing == None or loan_intent == None or loan_amt==0):
-        st.error(" :red[Certifique ]")
+        st.error(" :red[Preencha todos os campos do formulário ]")
     else:
 
         if loan_intent == "Educação":
